@@ -1,8 +1,9 @@
 package com.kamilrafalko.parkingsystem.rest;
 
-import com.kamilrafalko.parkingsystem.domain.ParkingMeter;
-import com.kamilrafalko.parkingsystem.domain.dto.Car;
+import com.kamilrafalko.parkingsystem.domain.ParkingMeterService;
+import com.kamilrafalko.parkingsystem.domain.dto.StartRequest;
 import com.kamilrafalko.parkingsystem.domain.dto.StartResponse;
+import com.kamilrafalko.parkingsystem.domain.dto.StopRequest;
 import com.kamilrafalko.parkingsystem.domain.dto.StopResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,23 +15,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ParkingMeterController {
 
-    private final ParkingMeter parkingMeter;
+    private final ParkingMeterService parkingMeterService;
 
     @Autowired
-    public ParkingMeterController(ParkingMeter parkingMeter) {
-        this.parkingMeter = parkingMeter;
+    public ParkingMeterController(ParkingMeterService parkingMeterService) {
+        this.parkingMeterService = parkingMeterService;
     }
 
     @PostMapping("meter/start")
-    public ResponseEntity<StartResponse> start(@RequestBody Car car) {
-        StartResponse response = parkingMeter.start(car);
+    public ResponseEntity<StartResponse> start(@RequestBody StartRequest startRequest) {
+        StartResponse response = parkingMeterService.start(startRequest);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
-
     @PostMapping("meter/stop")
-    public ResponseEntity<StopResponse> stop(@RequestBody Car car) {
-        StopResponse response =  parkingMeter.stop(car);
+    public ResponseEntity<StopResponse> stop(@RequestBody StopRequest stopRequest) {
+        StopResponse response =  parkingMeterService.stop(stopRequest);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

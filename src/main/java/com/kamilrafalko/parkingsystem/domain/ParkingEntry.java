@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -22,13 +19,18 @@ class ParkingEntry {
 
     private String licenseNumber;
     private LocalDateTime startDate;
+    private String vipCode;
 
     @Setter
     private LocalDateTime endDate;
 
-    ParkingEntry(String licenseNumber, LocalDateTime startDate) {
+    @Setter
+    @OneToOne
+    private PaymentDue paymentDue;
+
+    ParkingEntry(String licenseNumber, LocalDateTime startDate, String vipCode) {
         this.licenseNumber = licenseNumber;
         this.startDate = startDate;
+        this.vipCode = vipCode;
     }
-
 }

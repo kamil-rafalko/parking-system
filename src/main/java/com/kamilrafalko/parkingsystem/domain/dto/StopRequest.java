@@ -7,12 +7,12 @@ import lombok.Getter;
 
 @Getter
 @EqualsAndHashCode
-public class Car {
+public class StopRequest {
 
     private final String licenseNumber;
 
     @JsonCreator
-    public Car(@JsonProperty("licenseNumber") String licenseNumber) {
+    public StopRequest(@JsonProperty("licenseNumber") String licenseNumber) {
         this.licenseNumber = licenseNumber;
     }
 }
