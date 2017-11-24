@@ -1,6 +1,7 @@
 package com.kamilrafalko.parkingsystem.domain;
 
 import com.kamilrafalko.parkingsystem.domain.dto.CarState;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -8,7 +9,8 @@ public class ParkingStateService {
 
     private final ParkingEntryRepository parkingEntryRepository;
 
-    ParkingStateService(ParkingEntryRepository parkingEntryRepository) {
+    @Autowired
+    public ParkingStateService(ParkingEntryRepository parkingEntryRepository) {
         this.parkingEntryRepository = parkingEntryRepository;
     }
 

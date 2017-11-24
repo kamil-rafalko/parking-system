@@ -5,13 +5,11 @@ import com.kamilrafalko.parkingsystem.domain.dto.StartResponse;
 import com.kamilrafalko.parkingsystem.domain.dto.StopRequest;
 import com.kamilrafalko.parkingsystem.domain.dto.StopResponse;
 import com.kamilrafalko.parkingsystem.domain.exceptions.IllegalParkingMeterOperation;
-import com.kamilrafalko.parkingsystem.domain.exceptions.MaxHoursLimitExceededException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 

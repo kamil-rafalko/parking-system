@@ -2,15 +2,17 @@ package com.kamilrafalko.parkingsystem.rest;
 
 import com.kamilrafalko.parkingsystem.domain.ParkingStateService;
 import com.kamilrafalko.parkingsystem.domain.dto.CarState;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-class ParkingStateController {
+public class ParkingStateController {
 
     private final ParkingStateService parkingStateService;
 
+    @Autowired
     ParkingStateController(ParkingStateService parkingStateService) {
         this.parkingStateService = parkingStateService;
     }

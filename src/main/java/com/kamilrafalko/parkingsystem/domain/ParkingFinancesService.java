@@ -13,7 +13,7 @@ public class ParkingFinancesService {
     private final PaymentDueRepository repository;
 
     @Autowired
-    ParkingFinancesService(PaymentDueRepository repository) {
+    public ParkingFinancesService(PaymentDueRepository repository) {
         this.repository = repository;
     }
 
