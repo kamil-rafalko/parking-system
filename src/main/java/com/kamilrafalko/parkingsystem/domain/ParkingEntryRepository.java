@@ -7,4 +7,5 @@ import java.util.Optional;
 interface ParkingEntryRepository extends CrudRepository<ParkingEntry, Long> {
 
     Optional<ParkingEntry> findByLicenseNumberAndEndDateIsNull(String licenseNumber);
+
 }
