@@ -4,7 +4,7 @@ import lombok.Getter;
 
 @Getter
 public class CarState {
-    private boolean onParking;
+    private final boolean onParking;
 
     public CarState(boolean onParking) {
         this.onParking = onParking;
