@@ -1,0 +1,30 @@
+package com.kamilrafalko.parkingsystem.domain.dto;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+@Getter
+@EqualsAndHashCode
+public class StopResponse {
+
+    private final String licenseNumber;
+    private final LocalDateTime startDate;
+    private final LocalDateTime endDate;
+    private final BigDecimal parkingPrice;
+
+    @JsonCreator
+    public StopResponse(@JsonProperty("licenseNumber") String licenseNumber,
+                        @JsonProperty("startDate") LocalDateTime startDate,
+                        @JsonProperty("endDate") LocalDateTime endDate,
+                        @JsonProperty("parkingPrice") BigDecimal parkingPrice) {
+        this.licenseNumber = licenseNumber;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.parkingPrice = parkingPrice;
+    }
+}
